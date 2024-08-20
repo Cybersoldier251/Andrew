@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterDropletScript : MonoBehaviour
+public class BarkProjectileScript : MonoBehaviour
 {
-    //Delcaration
+    //Declarations
     private Rigidbody2D rb2d;
     private Animator anime;
     private PolygonCollider2D PC2D;
@@ -20,7 +20,6 @@ public class WaterDropletScript : MonoBehaviour
     //this value is called "Time Tick Start" used for telling the function when it should start ticking down the clock aka "Current Dead Time"
     public bool tts = false;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -29,10 +28,10 @@ public class WaterDropletScript : MonoBehaviour
         PC2D = GetComponent<PolygonCollider2D>();
 
         cpPosition = transform.position;
+
         sr = GetComponent<SpriteRenderer>();
 
-        
-        
+
 
 
     }
@@ -49,8 +48,8 @@ public class WaterDropletScript : MonoBehaviour
     public void Velocity()
     {
 
-       // this code allows the water droplet to move to the direction 
-        rb2d.velocity = -transform.right *2;
+        // this code allows the water droplet to move to the direction 
+        rb2d.velocity = -transform.right * 7;
 
 
 
@@ -61,21 +60,21 @@ public class WaterDropletScript : MonoBehaviour
 
 
     }
-   
+
 
     public void OnCollisionEnter2D()
     {
-      
-        sr.forceRenderingOff = true ;
+        sr.forceRenderingOff = true;
         PC2D.enabled = false;
         rb2d.velocity = -transform.right * 0;
         tts = true;
 
-        Instantiate(effect).transform.SetPositionAndRotation(this.transform.localPosition, this.transform.localRotation) ;
+        Instantiate(effect).transform.SetPositionAndRotation(this.transform.localPosition, this.transform.localRotation);
        
-        
-        
-      
+
+
+
+
 
 
 
@@ -83,7 +82,7 @@ public class WaterDropletScript : MonoBehaviour
 
     public void TimeBeforeDestroy()
     {
-        if(cdt <= 0)
+        if (cdt <= 0)
         {
             Destroy(this.gameObject);
 
@@ -101,12 +100,12 @@ public class WaterDropletScript : MonoBehaviour
 
 
 
-        
+
     }
-   
+
     private void TimeTick()
     {
-        if(tts == true)
+        if (tts == true)
         {
             cdt = cdt - .1f * Time.deltaTime;
 
@@ -124,6 +123,10 @@ public class WaterDropletScript : MonoBehaviour
 
 
 
+
+
+
+
     }
 
 
@@ -133,13 +136,5 @@ public class WaterDropletScript : MonoBehaviour
 
 
 
+    }
 
-
-
-
-
-
-
-
-
-}

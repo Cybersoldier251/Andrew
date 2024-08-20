@@ -10,6 +10,7 @@ public class DogHouseScript : MonoBehaviour
     private Animator anime;
     private PlayerScripts ps;
     public RuntimeAnimatorController AnimeC;
+    public GameObject SecondCamera;
 
 
     // Start is called before the first frame update
@@ -18,7 +19,7 @@ public class DogHouseScript : MonoBehaviour
         CC2D = GetComponent<CircleCollider2D>();
         ps = GameObject.Find("Player 1").GetComponent<PlayerScripts>();
         anime = GetComponent<Animator>();
-
+        
     }
 
     // Update is called once per frame
@@ -55,7 +56,7 @@ public class DogHouseScript : MonoBehaviour
         if(playerWin == true){
             ps.gameObject.SetActive(false);
             anime.runtimeAnimatorController = AnimeC;
-
+            SecondCamera.SetActive(true); 
 
 
 

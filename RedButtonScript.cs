@@ -9,7 +9,7 @@ public class RedButtonScript : MonoBehaviour
     public bool pressed;
     public bool Timed;
     public float timeleft = 0f;
-    private LaserBeamScript LBS;
+    
     private SpriteRenderer Spr;
     public Sprite newSp;
     public Sprite oldSp;
@@ -20,7 +20,7 @@ public class RedButtonScript : MonoBehaviour
     void Start()
     {
       CC2D =  GetComponent<CircleCollider2D>();
-        LBS = GameObject.Find("Laser Beam").GetComponent<LaserBeamScript>();
+        
         Spr = GetComponent<SpriteRenderer>();
       
     }
@@ -39,7 +39,7 @@ public class RedButtonScript : MonoBehaviour
     {
         if (pressed == true)
         {
-            LBS.gameObject.SetActive(false);
+           
              Spr.sprite = newSp;
             
 
@@ -47,7 +47,7 @@ public class RedButtonScript : MonoBehaviour
         else
         {
 
-            LBS.gameObject.SetActive(true);
+           
             Spr.sprite = oldSp;
 
         }
